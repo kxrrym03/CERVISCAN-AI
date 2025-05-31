@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CerviScan AI</title>
+  <link rel="stylesheet" href="Cervical Cancer.css"/>
+</head>
+<body>
+  <!-- Login -->
+  <section id="login-section">
+    <h2>Login to CerviScan AI</h2>
+    <form id="login-form">
+      <label>Username</label>
+      <input type="text" name="username" required />
+      <label>Password</label>
+      <input type="password" name="password" required />
+      <button type="submit">Login</button>
+      <a href="#" id="show-signup">Don't have an account? Sign up</a>
+    </form>
+  </section>
+
+  <!-- Signup -->
+  <section id="signup-section" class="hidden">
+    <h2>Create Account</h2>
+    <form id="signup-form">
+      <label>Username</label>
+      <input type="text" name="new_username" required />
+      <label>Email</label>
+      <input type="email" name="email" required />
+      <label>Password</label>
+      <input type="password" name="new_password" required />
+      <button type="submit">Sign Up</button>
+      <a href="#" id="show-login">Already have an account? Log in</a>
+    </form>
+  </section>
+
+  <!-- Prediction -->
+  <section id="prediction-section" class="hidden">
+    <h2>Cervical Cancer Risk Prediction</h2>
+    <form id="predict-form">
+      <label>Age</label>
+      <input type="number" name="age" required />
+      <label>Number of Pregnancies</label>
+      <input type="number" name="num_pregnancies" required />
+      <label>Do you smoke?</label>
+      <select name="smokes"><option value="0">No</option><option value="1">Yes</option></select>
+      <label>Are you HPV positive?</label>
+      <select name="hpv_positive"><option value="0">No</option><option value="1">Yes</option></select>
+      <label>Number of Sexual Partners</label>
+      <input type="number" name="sexual_partners" required />
+      <label>Early sexual activity?</label>
+      <select name="early_sexual_activity"><option value="0">No</option><option value="1">Yes</option></select>
+      <label>History of STDs?</label>
+      <select name="stds"><option value="0">No</option><option value="1">Yes</option></select>
+      <label>Irregular bleeding?</label>
+      <select name="irregular_bleeding"><option value="0">No</option><option value="1">Yes</option></select>
+      <label>Using contraceptives?</label>
+      <select name="contraceptive_use"><option value="0">No</option><option value="1">Yes</option></select>
+      <button type="submit">Predict Risk</button>
+    </form>
+    <div id="result"></div>
+    <button id="logout-btn">Logout</button>
+  </section>
+
+  <script src="Cervical Cancer.js"></script>
+</body>
+</html>
