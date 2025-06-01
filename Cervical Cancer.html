@@ -4,65 +4,134 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CerviScan AI</title>
-  <link rel="stylesheet" href="Cervical Cancer.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='Cervical Cancer.css') }}">
 </head>
 <body>
-  <!-- Login -->
-  <section id="login-section">
-    <h2>Login to CerviScan AI</h2>
-    <form id="login-form">
-      <label>Username</label>
-      <input type="text" name="username" required />
-      <label>Password</label>
-      <input type="password" name="password" required />
-      <button type="submit">Login</button>
-      <a href="#" id="show-signup">Don't have an account? Sign up</a>
-    </form>
-  </section>
+  <!--  Navigation bar -->
+  <header>
+    <nav class="navbar">
+      <span class="logo">CerviScan&nbsp;<strong>AI</strong></span>
+      <ul class="nav-links">
+        <li><a href="#" data-page="about">About</a></li>
+        <li><a href="#" data-page="risk">Risk&nbsp;Factors</a></li>
+        <li><a href="#" data-page="prevention">Prevention&nbsp;&amp;&nbsp;Treatment</a></li>
+        <li><a href="#" data-page="predict">Risk&nbsp;Assessment</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Signup -->
-  <section id="signup-section" class="hidden">
-    <h2>Create Account</h2>
-    <form id="signup-form">
-      <label>Username</label>
-      <input type="text" name="new_username" required />
-      <label>Email</label>
-      <input type="email" name="email" required />
-      <label>Password</label>
-      <input type="password" name="new_password" required />
-      <button type="submit">Sign Up</button>
-      <a href="#" id="show-login">Already have an account? Log in</a>
-    </form>
-  </section>
+  <!-- Pages-->
+  <main>
+    <!-- About -->
+    <section id="about" class="page-section">
+      <h2>What is Cervical Cancer?</h2>
+      <p>
+        Cervical cancer is a malignant tumour that starts in the cervix, the
+        lower part of the uterus. Nearly all cases stem from persistent
+        infection with high-risk human papillomavirus (HPV) types.
+      </p>
+      <p>
+        <strong>Why it matters:</strong> Precancerous changes can exist for
+        years without symptoms. Routine screening and HPV vaccination make
+        cervical cancer one of the most preventable cancers worldwide.
+      </p>
+      <p>
+        Possible warning signs include abnormal vaginal bleeding (especially
+        after intercourse), pelvic pain, or unusual discharge. Any symptoms
+        should be evaluated by a qualified clinician.
+      </p>
+    </section>
 
-  <!-- Prediction -->
-  <section id="prediction-section" class="hidden">
-    <h2>Cervical Cancer Risk Prediction</h2>
-    <form id="predict-form">
-      <label>Age</label>
-      <input type="number" name="age" required />
-      <label>Number of Pregnancies</label>
-      <input type="number" name="num_pregnancies" required />
-      <label>Do you smoke?</label>
-      <select name="smokes"><option value="0">No</option><option value="1">Yes</option></select>
-      <label>Are you HPV positive?</label>
-      <select name="hpv_positive"><option value="0">No</option><option value="1">Yes</option></select>
-      <label>Number of Sexual Partners</label>
-      <input type="number" name="sexual_partners" required />
-      <label>Early sexual activity?</label>
-      <select name="early_sexual_activity"><option value="0">No</option><option value="1">Yes</option></select>
-      <label>History of STDs?</label>
-      <select name="stds"><option value="0">No</option><option value="1">Yes</option></select>
-      <label>Irregular bleeding?</label>
-      <select name="irregular_bleeding"><option value="0">No</option><option value="1">Yes</option></select>
-      <label>Using contraceptives?</label>
-      <select name="contraceptive_use"><option value="0">No</option><option value="1">Yes</option></select>
-      <button type="submit">Predict Risk</button>
-    </form>
-    <div id="result"></div>
-    <button id="logout-btn">Logout</button>
-  </section>
+    <!-- Risk Factors -->
+    <section id="risk" class="page-section hidden">
+      <h2>Who May Be at Risk?</h2>
+      <ul>
+        <li><strong>HPV infection (16 & 18):</strong> accounts for ~70 % of cases.</li>
+        <li><strong>Early sexual activity</strong> or multiple partners.</li>
+        <li><strong>Tobacco use:</strong> chemicals weaken cervical cells.</li>
+        <li><strong>Weakened immunity:</strong> e.g., HIV infection.</li>
+        <li><strong>Prolonged oral-contraceptive use</strong> (≥ 5 yr).</li>
+        <li><strong>High parity:</strong> three or more full-term pregnancies.</li>
+        <li><strong>Family history</strong> of cervical or other reproductive cancers.</li>
+        <li><strong>Missed screening:</strong> no Pap/HPV tests for ≥ 5 yr.</li>
+      </ul>
+    </section>
 
-  <script src="Cervical Cancer.js"></script>
+    <!-- Prevention & Treatment -->
+    <section id="prevention" class="page-section hidden">
+      <h2>Prevention &amp; Treatment</h2>
+
+      <h3>Prevention</h3>
+      <ul>
+        <li><strong>HPV vaccine:</strong> protects against the most oncogenic strains, ideally before sexual debut; licensed up to age 45.</li>
+        <li><strong>Routine screening:</strong> Pap every 3 yr or HPV test every 5 yr (follow local guidelines).</li>
+        <li><strong>Safer sex:</strong> condom use and limiting partners reduce HPV spread.</li>
+        <li><strong>Quit smoking</strong> and maintain immune health.</li>
+      </ul>
+
+      <h3>Treatment</h3>
+      <ul>
+        <li><strong>Early lesions:</strong> excision (LEEP, cone biopsy) or simple hysterectomy.</li>
+        <li><strong>Invasive cancer:</strong> radical surgery and/or chemoradiation.</li>
+        <li><strong>Advanced disease:</strong> chemotherapy, targeted agents, immunotherapy, plus supportive care.</li>
+      </ul>
+      <p>
+        <em>All treatment decisions belong to a licensed healthcare team;
+        early detection dramatically improves outcomes.</em>
+      </p>
+    </section>
+
+    <!-- Risk Assessment -->
+    <section id="predict" class="page-section hidden">
+      <h2>Risk Assessment Tool</h2>
+      <p class="note">
+        Enter the details below for a preliminary risk estimate. Always consult a qualified
+        healthcare provider for screening or medical advice.
+      </p>
+      <form id="predict-form">
+        <label>Age
+          <input type="number" name="age" required />
+        </label>
+
+        <label>Number&nbsp;of&nbsp;Pregnancies
+          <input type="number" name="num_pregnancies" required />
+        </label>
+
+        <label>Current Tobacco Use
+          <select name="smokes"><option value="0">No</option><option value="1">Yes</option></select>
+        </label>
+
+        <label>HPV Positive?
+          <select name="hpv_positive"><option value="0">No</option><option value="1">Yes</option></select>
+        </label>
+
+        <label>Lifetime Sexual Partners
+          <input type="number" name="sexual_partners" required />
+        </label>
+
+        <label>Sexual debut before age 17?
+          <select name="early_sexual_activity"><option value="0">No</option><option value="1">Yes</option></select>
+        </label>
+
+        <label>History of STDs?
+          <select name="stds"><option value="0">No</option><option value="1">Yes</option></select>
+        </label>
+
+        <label>Irregular Vaginal Bleeding?
+          <select name="irregular_bleeding"><option value="0">No</option><option value="1">Yes</option></select>
+        </label>
+
+        <label>Hormonal Contraceptive Use
+          <select name="contraceptive_use"><option value="0">No</option><option value="1">Yes</option></select>
+        </label>
+
+        <button type="submit">Submit&nbsp;for&nbsp;Risk&nbsp;Estimate</button>
+      </form>
+      <div id="result"></div>
+      
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='Cervical Cancer.js') }}"></script>
 </body>
 </html>
